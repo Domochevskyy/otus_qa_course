@@ -79,7 +79,7 @@ class JsonParser:
     @staticmethod
     def serialize(path_to_file: str, data: Iterable[Person]):
         with open(path_to_file, "w") as file:
-            json.dump(obj=data, fp=file)
+            json.dump(obj=data, fp=file, indent=4)
 
 
 class CsvParser:
