@@ -1,18 +1,38 @@
 import pytest
-import yaml
+import requests
 
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--config", action="store", help="config file path", required=True
+        '--url',
+        help='Url to test',
+        required=True,
+    )
+
+    parser.addoption(
+        '--method',
+        default='get',
+        choices=['get', 'post', 'put', 'patch', 'delete'],
+        help='Method to test',
+    )
+
+    parser.addoption(
+        '--status_code',
+        default='200',
+        help='Response status'
     )
 
 
-@pytest.fixture(scope="session")
-def config(request):
-    with open(request.config.getoption("--config"), 'r') as stream:
-        try:
-            parsed_yaml = yaml.safe_load(stream)
-        except yaml.YAMLError:
-            raise
-    return parsed_yaml
+@pytest.fixture
+def base_url(request):
+    return request.config.getoption('--url')
+
+
+@pytest.fixture
+def request_method(request):
+    return getattr(requests, request.config.getoption('--method'))
+
+
+@pytest.fixture
+def status_code(request):
+    return int(request.config.getoption('--status_code'))
