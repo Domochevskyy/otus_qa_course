@@ -1,0 +1,2 @@
+[tool.pytest.ini_options]
+addopts = "--url=https://dog.ceo/api --method=get --status_code=200"
