@@ -1,3 +1,0 @@
-list_all_breeds: 'https://dog.ceo/api/breeds/list/all'
-random_image: 'https://dog.ceo/api/breeds/image/random'
-list_all_sub_breeds: 'https://dog.ceo/api/breed/hound/list'
