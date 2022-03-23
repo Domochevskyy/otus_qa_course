@@ -29,7 +29,7 @@ def base_url(request) -> str:
 
 
 @pytest.fixture
-def request_method(request) -> requests.models.Response():
+def request_method(request) -> requests.models.Request():
     return getattr(requests, request.config.getoption('--method'))
 
 
