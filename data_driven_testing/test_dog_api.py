@@ -1,6 +1,5 @@
-from jsonschema import validate
-
 import pytest
+from jsonschema import validate
 
 
 class TestDogApi:
