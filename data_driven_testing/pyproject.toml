@@ -1,5 +1,5 @@
 [tool.pytest.ini_options]
-addopts = "--url=https://jsonplaceholder.typicode.com/ --method=get --status_code=200"
+addopts = "--url=https://ya.ru --method=get --status_code=200"
 log_cli = "1"
 log_cli_level = "INFO"
 log_cli_format = "%(asctime)s [%(levelname)4s] %(message)s"
