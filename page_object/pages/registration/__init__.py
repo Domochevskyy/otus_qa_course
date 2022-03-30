@@ -1,0 +1,2 @@
+from .registration_page import RegistrationPage
+from .registration_page_locators import RegistrationPageLocators
