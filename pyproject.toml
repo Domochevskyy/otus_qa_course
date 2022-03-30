@@ -1,5 +1,5 @@
 [tool.pytest.ini_options]
-addopts = "--browser=chrome --url=http://192.168.1.5:8081"
+addopts = "--browser=chrome --url=http://192.168.1.5:8081 --"
 log_cli = "1"
 log_cli_level = "INFO"
 log_cli_format = "%(asctime)s [%(levelname)4s] %(message)s"

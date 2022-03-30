@@ -9,6 +9,8 @@ up:
 	LOCAL_IP=`hostname -I | grep -o "^[0-9.]*"`	\
 	docker-compose up  -d
 
+tests:
+	pytest page_object/
 down:
 	OPENCART_PORT=8081	\
 	PHPADMIN_PORT=8888	\
