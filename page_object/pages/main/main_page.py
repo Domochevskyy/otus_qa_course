@@ -1,10 +1,11 @@
+import allure
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 from selenium.webdriver.remote.webelement import WebElement
 
-from .main_page_locators import MainPageLocators
+from ...models import CurrencyChoice, CurrencyType
 from ..base.base_page import BasePage
-from ...models import CurrencyType, CurrencyChoice
+from .main_page_locators import MainPageLocators
 
 
 class MainPage(BasePage):
@@ -39,6 +40,7 @@ class MainPage(BasePage):
                 raise TypeError('Wrong currency was being chosen')
         self.click(element=button)
 
+    @allure.step
     def search_product(self, product: str) -> None:
         search_input = self.find_element(MainPageLocators.search_input)
         self.send_keys(input_element=search_input, keys=product)

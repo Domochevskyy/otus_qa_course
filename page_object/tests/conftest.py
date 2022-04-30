@@ -7,8 +7,8 @@ from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 
 from page_object.models.models import User
 from page_object.pages import MainPage, SearchPage
-from page_object.pages.admin import AdminPage
-from page_object.pages.registration.registration_page import RegistrationPage
+from page_object.pages import AdminPage
+from page_object.pages import RegistrationPage
 
 
 def pytest_addoption(parser):
