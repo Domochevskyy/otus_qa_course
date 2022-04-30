@@ -9,8 +9,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 
 from page_object.models.models import AuthData, User
-from ..base.base_page import BasePage
 
+from ..base.base_page import BasePage
 from .admin_page_locators import (AdminPageLocators, AuthAdminPageLocators,
                                   CustomersPageLocators, ProductsPageLocators)
 
