@@ -1,0 +1,20 @@
+Отчёт о состоянии системы.
+    Пользователи системы: colord, kernoops, domoche+, message+, avahi, systemd+, rtkit, syslog, root, whoopsie
+    Процессов запущено: 304
+    Пользовательских процессов:
+    avahi: 2
+	colord: 1
+	domoche+: 100
+	kernoops: 2
+	message+: 1
+	root: 194
+	rtkit: 1
+	syslog: 1
+	systemd+: 2
+	whoopsie: 1
+
+    Всего памяти используется: 56%
+    Всего CPU используется: 102.2%
+    Больше всего памяти использует: 20.9
+    Больше всего CPU использует: 31.6
+    
