@@ -42,10 +42,6 @@ def parse_result(result: list[str]) -> str:
     return result
 
 
-def a(result):
-    print(result[1:])
-
-
 def write_to_file(report: str) -> None:
     with open(f'{strftime("%d-%m-%Y-%H:%M:%S", gmtime())}-scan.txt', 'w', encoding='utf-8') as file:
         file.write(report)
