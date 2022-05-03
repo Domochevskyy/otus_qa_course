@@ -134,3 +134,5 @@ reference.json
 api_testing/
 pytest.ini
 drivers/
+allure-results/
+allure-report/

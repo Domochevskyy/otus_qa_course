@@ -11,6 +11,9 @@ up:
 
 tests:
 	pytest page_object/
+
+allure:
+	allure generate --clean && allure open
 down:
 	OPENCART_PORT=8081	\
 	PHPADMIN_PORT=8888	\

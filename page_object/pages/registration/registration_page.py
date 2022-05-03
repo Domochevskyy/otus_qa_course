@@ -1,9 +1,13 @@
+import logging
+
+import allure
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
-from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 
 from page_object.models.models import User
 from page_object.pages import BasePage
+
 from .registration_page_locators import RegistrationPageLocators
 
 
@@ -12,6 +16,7 @@ class RegistrationPage(BasePage):
         super().__init__(driver=driver)
         self.url = 'http://192.168.1.5:8081/index.php?route=account/register'
 
+    @allure.step
     def register_account(self, data: User):
         first_name = self.find_element(RegistrationPageLocators.first_name)
         self.send_keys(input_element=first_name, keys=User.first_name)
@@ -30,3 +35,4 @@ class RegistrationPage(BasePage):
         self.send_keys(input_element=agree_input, keys=Keys.SPACE)
         continue_button = self.find_element(RegistrationPageLocators.continue_button)
         self.click(element=continue_button)
+        logging.info(f'Account {User} was successfully registered.')

@@ -17,4 +17,3 @@ class MainPageLocators:
     search_button = (By.XPATH, '//button[@class="btn btn-default btn-lg"]')
 
     nav_bar = (By.XPATH, '//div[@class="collapse navbar-collapse navbar-ex1-collapse"]/ul/li')
-
