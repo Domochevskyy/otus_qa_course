@@ -10,16 +10,16 @@ def run_command(command: list[str]) -> list[str]:
 
 def parse_result(result: list[str]) -> str:
     lines = tuple((map(lambda x: x.split(), result[1:])))
-    number_processes = len(lines) - 1
+    number_processes = len(lines)
     users = {splitted_line[0] for splitted_line in lines}
 
     memories = tuple(map(float, (line[3] for line in lines)))
-    max_memories = max(memories)
-    memories_sum = round(sum(memories, 3))
+    memories_sum = round(sum(memories), 3)
+    max_memory_process = max(lines, key=lambda line: line[3])[10][:20]
 
     cpus = tuple(map(float, (splitted_line[2] for splitted_line in lines)))
-    max_cpus = max(cpus)
     cpus_sum = round(sum(cpus), 3)
+    max_cpu_process = max(lines, key=lambda line: line[2])[10][:20]
 
     users_with_processes = ((splitted_line[0], ' '.join(splitted_line[10:])) for splitted_line in lines)
     sorted_users_with_processes = sorted(users_with_processes, key=lambda x: x[0])
@@ -36,10 +36,14 @@ def parse_result(result: list[str]) -> str:
     {f'{tab}'.join(f'{process[0]}: {process[1]}{newline}' for process in grouped_usr_and_processed)}
     Всего памяти используется: {memories_sum}%
     Всего CPU используется: {cpus_sum}%
-    Больше всего памяти использует: {max_memories}
-    Больше всего CPU использует: {max_cpus}
+    Больше всего памяти использует: {max_memory_process}
+    Больше всего CPU использует: {max_cpu_process}
     """
     return result
+
+
+def a(result):
+    print(result[1:])
 
 
 def write_to_file(report: str) -> None:

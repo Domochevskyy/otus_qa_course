@@ -1,0 +1,20 @@
+Отчёт о состоянии системы.
+    Пользователи системы: message+, syslog, whoopsie, root, avahi, systemd+, colord, rtkit, kernoops, domoche+
+    Процессов запущено: 314
+    Пользовательских процессов:
+    avahi: 2
+	colord: 1
+	domoche+: 105
+	kernoops: 2
+	message+: 1
+	root: 198
+	rtkit: 1
+	syslog: 1
+	systemd+: 2
+	whoopsie: 1
+
+    Всего памяти используется: 54.0%
+    Всего CPU используется: 95.0%
+    Больше всего памяти использует: /snap/pycharm-commun
+    Больше всего CPU использует: /snap/pycharm-commun
+    
