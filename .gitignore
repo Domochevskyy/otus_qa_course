@@ -136,3 +136,4 @@ pytest.ini
 drivers/
 allure-results/
 allure-report/
+access.log
