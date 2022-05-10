@@ -2,6 +2,7 @@ import json
 import os
 import re
 from collections import defaultdict
+from pprint import pprint
 
 import click as click
 
@@ -58,13 +59,15 @@ def parse_logs(log_file):
             result = json.dumps(result, indent=4)
             json_file.write(result)
 
+        print(result)
+
 
 @click.command()
 @click.option('--log_file', help='Path to log file or its name.')
 def main(log_file):
     if os.path.isdir(log_file):
         for file in os.listdir(log_file):
-            if file.endswith(".log") and os.access(file, os.R_OK):
+            if file.endswith(".log") and os.access(log_file + file, os.R_OK):
                 path_to_logfile = os.path.join(log_file, file)
                 parse_logs(path_to_logfile)
     elif os.path.isfile(log_file) and os.access(log_file, os.R_OK):
