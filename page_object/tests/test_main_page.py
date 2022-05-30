@@ -1,7 +1,6 @@
 import allure
 import pytest
-
-from page_object.models import CurrencyChoice, CurrencyType
+from models import CurrencyChoice, CurrencyType
 
 
 class TestMainPage:

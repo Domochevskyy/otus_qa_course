@@ -1,14 +1,13 @@
 import logging
 
 import allure
+from models.models import AuthData, User
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
-
-from page_object.models.models import AuthData, User
 
 from ..base.base_page import BasePage
 from .admin_page_locators import (AdminPageLocators, AuthAdminPageLocators,

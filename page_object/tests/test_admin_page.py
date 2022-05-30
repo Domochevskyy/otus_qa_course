@@ -1,6 +1,5 @@
 import allure
-
-from page_object.models.models import AuthData
+from models import AuthData
 
 
 class TestAdminPage:

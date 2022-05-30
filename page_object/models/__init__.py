@@ -1,1 +1,1 @@
-from .models import CurrencyChoice, CurrencyType
+from .models import AuthData, CurrencyChoice, CurrencyType, User

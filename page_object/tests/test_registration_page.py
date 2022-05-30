@@ -1,6 +1,5 @@
 import allure
-
-from page_object.models.models import AuthData, User
+from models import AuthData, User
 
 
 class TestRegistrationPage:

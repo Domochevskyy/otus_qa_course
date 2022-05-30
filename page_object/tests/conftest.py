@@ -2,15 +2,14 @@ import logging
 
 import allure
 import pytest
+from models import User
+from pages import AdminPage, MainPage, RegistrationPage, SearchPage
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
-
-from page_object.models.models import User
-from page_object.pages import AdminPage, MainPage, RegistrationPage, SearchPage
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -34,10 +33,10 @@ def pytest_runtest_makereport(item, call):
 
 
 def pytest_addoption(parser):
-    parser.addoption('--browser', help='Web browser', required=True)
-    parser.addoption('--url', help='Base opencart url', required=True)
-    parser.addoption('--driver_path', required=True)
-    parser.addoption("--executor", action="store", default="192.168.1.5")
+    parser.addoption('--browser', default='chrome', help='Web browser', required=True)
+    parser.addoption('--url', default='http://192.168.1.5:8081', help='Base opencart url', required=True)
+    parser.addoption('--driver_path')
+    parser.addoption("--executor", action="store", default="selenoid")
     parser.addoption("--videos", default=False)
     parser.addoption("--vnc", default=True)
     parser.addoption("--logs", default=True)

@@ -1,13 +1,12 @@
 import logging
 
 import allure
+from models import User
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 
-from page_object.models.models import User
-from page_object.pages import BasePage
-
+from ..base.base_page import BasePage
 from .registration_page_locators import RegistrationPageLocators
 
 
