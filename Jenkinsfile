@@ -22,7 +22,9 @@ pipeline {
             }
         }
         stage('Remove container') {
-        sh 'docker rm my_first_container_from_dockerfile'
+            steps {
+                sh 'docker rm my_first_container_from_dockerfile'
+            }
         }
         stage('report-allure') {
             steps {
@@ -36,11 +38,6 @@ pipeline {
                     ])
                 }
             }
-        }
-    }
-    post {
-        always {
-            sh 'docker rm test_run'
         }
     }
 }
