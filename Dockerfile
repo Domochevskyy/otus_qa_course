@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 COPY page_object .
 COPY pyproject.toml .
 ENV PYTHONPATH=/app
-CMD ['pytest', '--browser=chrome', '--url=http://192.168.1.5:8081', '--executor=192.168.1.5']
+CMD ['pytest', '--browser=chrome', '--host=192.168.1.5:8081', '--executor=192.168.1.5']

@@ -1,7 +1,7 @@
 CHROME_DRIVER_PATH ?=
 FIREFOX_DRIVER_PATH ?=
 TEST_DIR ?=
-CURRENT_PATH = "$(pwd)"
+
 
 up:
 	OPENCART_PORT=8081	\
@@ -13,6 +13,7 @@ tests:
 	docker build --tag tests .
 	docker run --name my_first_container_from_dockerfile \
 			   --network selenoid \
+			   --privileged	\
 			   tests pytest
 	docker cp my_first_container_from_dockerfile:/app/allure-results .
 	docker rm my_first_container_from_dockerfile

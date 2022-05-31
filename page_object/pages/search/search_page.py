@@ -14,7 +14,7 @@ class SearchPage(BasePage):
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
         self.driver = driver
-        self.url = 'http://192.168.1.5:8081/index.php?route=product/search'
+        self.url = f'http://{self.host}/index.php?route=product/search'
 
     @allure.step
     def find_results(self) -> list[WebElement] | str:

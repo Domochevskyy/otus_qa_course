@@ -14,7 +14,7 @@ class MainPage(BasePage):
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
         self.driver = driver
-        self.url = 'http://192.168.1.5:8081/'
+        self.url = f'http://{self.host}/'
 
     @property
     def currency(self) -> CurrencyType:

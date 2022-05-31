@@ -13,7 +13,7 @@ from .registration_page_locators import RegistrationPageLocators
 class RegistrationPage(BasePage):
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
-        self.url = 'http://192.168.1.5:8081/index.php?route=account/register'
+        self.url = f'http://{self.host}/index.php?route=account/register'
 
     @allure.step
     def register_account(self, data: User):

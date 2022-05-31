@@ -19,7 +19,7 @@ class AuthAdminPage(BasePage):
 
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
-        self.url = 'http://192.168.1.5:8081/admin'
+        self.url = f'http://{self.host}/admin'
 
     @allure.step
     def login(self, login: AuthData.LOGIN = None, password: AuthData.PASSWORD = None) -> None:

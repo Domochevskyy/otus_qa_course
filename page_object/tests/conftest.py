@@ -3,7 +3,7 @@ import logging
 import allure
 import pytest
 from models import User
-from pages import AdminPage, MainPage, RegistrationPage, SearchPage
+from pages import AdminPage, BasePage, MainPage, RegistrationPage, SearchPage
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -34,12 +34,17 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_addoption(parser):
     parser.addoption('--browser', default='chrome', help='Web browser', required=True)
-    parser.addoption('--url', default='http://192.168.1.5:8081', help='Base opencart url', required=True)
+    parser.addoption('--host', default='192.168.1.5:8081', help='Base opencart address: HOSTNAME:PORT.', required=True)
     parser.addoption('--driver_path')
     parser.addoption("--executor", action="store", default="selenoid")
     parser.addoption("--videos", default=False)
     parser.addoption("--vnc", default=True)
     parser.addoption("--logs", default=True)
+
+
+@pytest.hookimpl(trylast=True)
+def pytest_configure(config):
+    BasePage.host = config.getoption('--host')
 
 
 @pytest.fixture(scope='session')
