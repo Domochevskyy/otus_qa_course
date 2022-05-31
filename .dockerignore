@@ -14,3 +14,5 @@ README.md
 README.MD
 __pycache__/
 venv/
+allure-report/
+allure-results/
