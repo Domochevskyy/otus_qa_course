@@ -1,9 +1,9 @@
 import allure
+from models import CurrencyChoice, CurrencyType
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
 from selenium.webdriver.remote.webelement import WebElement
 
-from ...models import CurrencyChoice, CurrencyType
 from ..base.base_page import BasePage
 from .main_page_locators import MainPageLocators
 
@@ -14,7 +14,7 @@ class MainPage(BasePage):
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
         self.driver = driver
-        self.url = 'http://192.168.1.5:8081/'
+        self.url = f'http://{self.host}/'
 
     @property
     def currency(self) -> CurrencyType:

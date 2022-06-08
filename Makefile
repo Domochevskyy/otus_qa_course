@@ -10,8 +10,13 @@ up:
 	docker-compose up  -d
 
 tests:
-	pytest page_object/
-
+	docker build --tag tests .
+	docker run --name my_first_container_from_dockerfile \
+			   --network selenoid \
+			   --privileged	\
+			   tests pytest
+	docker cp my_first_container_from_dockerfile:/app/allure-results .
+	docker rm my_first_container_from_dockerfile
 allure:
 	allure generate --clean && allure open
 down:

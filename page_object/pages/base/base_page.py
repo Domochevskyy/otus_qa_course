@@ -16,6 +16,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class BasePage(abc.ABC):
     element_load_timeout = 20
     small_timeout = 2
+    host = None
 
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         self.driver = driver

@@ -1,14 +1,13 @@
 import logging
 
 import allure
+from models.models import AuthData, User
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
-
-from page_object.models.models import AuthData, User
 
 from ..base.base_page import BasePage
 from .admin_page_locators import (AdminPageLocators, AuthAdminPageLocators,
@@ -20,7 +19,7 @@ class AuthAdminPage(BasePage):
 
     def __init__(self, driver: ChromeDriver | FirefoxDriver = None):
         super().__init__(driver=driver)
-        self.url = 'http://192.168.1.5:8081/admin'
+        self.url = f'http://{self.host}/admin'
 
     @allure.step
     def login(self, login: AuthData.LOGIN = None, password: AuthData.PASSWORD = None) -> None:
